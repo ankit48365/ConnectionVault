@@ -1,3 +1,5 @@
+[![Upload Python Package](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml/badge.svg)](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml)
+
 # ConnectionVault
 
 To run this project :
