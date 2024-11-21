@@ -1,21 +1,21 @@
 import yaml
 import os
 
-#readme.md file for setting up 
+#readme.md file for setting up
 
-# Retrieve and verify the environment variable 
-conn_home = os.getenv('conn_home') 
-print(f"conn_home: {conn_home}") 
+# Retrieve and verify the environment variable
+conn_home = os.getenv('conn_home')
+print(f"conn_home: {conn_home}")
 
-# Define the path for the connections file 
-connections_file = os.path.join(conn_home, 'connections.yaml') 
-print(f"connections_file: {connections_file}") 
+# Define the path for the connections file
+connections_file = os.path.join(conn_home, 'connections.yaml')
+print(f"connections_file: {connections_file}")
 
-# Check if the file exists 
+# Check if the file exists
 
-if os.path.exists(connections_file): 
-    print("File exists.") 
-else: 
+if os.path.exists(connections_file):
+    print("File exists.")
+else:
     print("File does not exist.")
 
 # Function to load the connections from the file
@@ -66,9 +66,9 @@ def main():
             if ConnType == '1': ConnType = 'postgres'
             elif ConnType == '2': ConnType = 'sqlserver'
             elif ConnType == '3': ConnType = 'other'
-            elif ConnType == '4': 
+            elif ConnType == '4':
                 break
-            else: 
+            else:
                 print("Invalid choice. Please try again.")
 
             name = input("Enter new connection name: ")

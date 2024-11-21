@@ -1,4 +1,4 @@
-name: Upload Python Package
+name: Pylint Code Quality Check
 
 on:
   push:  # Trigger on every push to any branch
