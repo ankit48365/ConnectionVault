@@ -1,3 +1,6 @@
+[![Upload Python Package](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml/badge.svg)](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml)
+![Latest Release](https://img.shields.io/badge/release-v0.0.4-blue)
+
 # ConnectionVault
 
 To run this project :
