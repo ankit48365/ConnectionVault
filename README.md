@@ -14,6 +14,24 @@ Windows: (takes a while for the new session to print the path)
 setx conn_home "C:\path\outside\your\project\preferably"
 echo %conn_home%
 
+## Running the Project
+
+To run this project, you need to define and save a path with the name `conn_home`. This is where you’ll save the `connections.yaml` file, which stores your database credentials.
+
+### For Linux:
+
+```bash
+# Define and save the path in your .bashrc
+echo 'export conn_home="path/outside/your/project/preferably"' >> ~/.bashrc
+
+# Source the .bashrc to apply changes
+source ~/.bashrc
+
+# Define and save the path
+setx conn_home "C:\path\outside\your\project\preferably"
+
+# Check the path
+echo %conn_home%
 
 
 <!-- # Navigate to your project directory -->
