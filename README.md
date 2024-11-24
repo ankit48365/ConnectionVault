@@ -3,9 +3,33 @@
 
 # ConnectionVault
 
-To run this project :
-define and save a path with name "conn_home", where you'll save connections.yaml file to save store your database credentials:
+## Purpose
 
+The purpose of this project is to centralize the database connections file (as YAML) on a user's machine. The project has two utilities:
+
+1. **Connection Manager:** Allows you to choose and load a connection string in a Python code quickly.
+
+   Python code usage example:
+
+   ```python
+   from app.src.connection_utility import load_connections, choose_connection
+   from sqlalchemy import create_engine
+   import pandas as pd
+
+   def main():
+       connections = load_connections()
+       conn = choose_connection(connections)
+
+       engine = create_engine(conn)
+       query = input("Input your query: ")
+       df = pd.read_sql_query(query, engine)
+       print(df)
+
+   if __name__ == "__main__":
+       main()
+
+    
+   
 Linux:
 echo 'export conn_home="path/outside/your/project/preferably"' >> ~/.bashrc
 source ~/.bashrc
@@ -27,24 +51,16 @@ echo 'export conn_home="path/outside/your/project/preferably"' >> ~/.bashrc
 # Source the .bashrc to apply changes
 source ~/.bashrc
 
+## For Windows:
+
 # Define and save the path
 setx conn_home "C:\path\outside\your\project\preferably"
 
 # Check the path
 echo %conn_home%
 
+# Define and save the path
+setx conn_home "C:\path\outside\your\project\preferably"
 
-<!-- # Navigate to your project directory -->
-<!-- cd /path/to/your/project
-
-# Create and activate the virtual environment
-python3 -m venv venv
-source venv/bin/activate  # For Linux/Mac
-# venv\Scripts\activate  # For Windows
-
-# Install Poetry inside the virtual environment
-pip install poetry
-
-# Initialize the Poetry project if not already done
-poetry init
-ead
+# Check the path
+echo %conn_home%
