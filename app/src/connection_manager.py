@@ -72,7 +72,7 @@ def main():
                 print("Invalid choice. Please try again.")
 
             name = input("Enter new connection name: ")
-            driver = input("Enter driver name (postgresql+psycopg2 or ODBC Driver 18 for SQL Server): ")
+            driver = input("Enter driver name (suggestion ~ postgresql+psycopg2 or ODBC+Driver+18+for+SQL+Server): ")
             host = input("Enter host: ")
             database = input("Enter database: ")
             port = input("Enter port: ")
