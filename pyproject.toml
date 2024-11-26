@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "connectionvault"
-version = "0.0.1"
+version = "0.0.5"
 description = "help with connection details"
 authors = ["Your Name <you@example.com>"]
 license = "MIT"

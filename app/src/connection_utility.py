@@ -19,14 +19,10 @@ else:
 # @trace_func
 def make_string(conn_det):
     if conn_det['ConnectionType'] == 'postgres':
-        conn_str = f"postgresql+psycopg2://{conn_det['user']}:{conn_det['password']}@{conn_det['host']}/{conn_det['database']}"
+        conn_str = f"{conn_det['driver']}://{conn_det['user']}:{conn_det['password']}@{conn_det['host']}:{conn_det['port']}/{conn_det['database']}"
         return conn_str
     elif conn_det['ConnectionType'] == 'sqlserver':
-        conn_str = (
-        f"mssql+pyodbc://{conn_det['user']}:{conn_det['password']}@{conn_det['host']}:1433/{conn_det['database']}"
-        "?driver=ODBC+Driver+18+for+SQL+Server"
-        "&TrustServerCertificate=yes"
-        )
+        conn_str = f"mssql+pyodbc://{conn_det['user']}:{conn_det['password']}@{conn_det['host']}:{conn_det['port']}/{conn_det['database']}?driver={conn_det['driver']}&TrustServerCertificate=yes"
         return conn_str
 
     elif conn_det['ConnectionType'] == 'other':
