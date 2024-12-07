@@ -1,12 +1,14 @@
 [tool.poetry]
 name = "connectionvault"
-version = "0.0.5"
+version = "0.0.6"
 description = "help with connection details"
-authors = ["Your Name <you@example.com>"]
+authors = ["ankit <ankit48365@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 
-packages = [ { include = "src", from = "app/" }]
+[tool.poetry.package]
+include = ["src"]
+from = "app/"
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -16,7 +18,11 @@ psycopg2 = "^2.9.10"
 pandas = "^2.2.3"
 pyodbc = "^5.2.0"
 pylint = "^3.3.1"
+tomli = "^2.2.1"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts] 
+connectionvault = "src.cli:main"
