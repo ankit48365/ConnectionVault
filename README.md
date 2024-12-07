@@ -3,6 +3,13 @@
 
 # ConnectionVault
 
+```python
+    
+    pip install connectionvault
+    connectionvault --help
+
+```    
+
 ## Purpose
 
 
