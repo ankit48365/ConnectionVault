@@ -5,6 +5,7 @@
 
 ## Purpose
 
+
 The purpose of this project is to centralize the database connections file (as YAML) on a user's machine. The project has two utilities:
 
 1. **Connection Manager:** Allows you to choose and load a connection string in a Python code quickly.
