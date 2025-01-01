@@ -4,15 +4,16 @@ import os
 
 # Retrieve and verify the environment variable
 conn_home = os.getenv('conn_home')
-print(f"conn_home: {conn_home}")
+# print(f"conn_home: {conn_home}")
 
 # Define the path for the connections file
 connections_file = os.path.join(conn_home, 'connections.yaml')
-print(f"connections_file: {connections_file}")
+# print(f"connections_file: {connections_file}")
 
 # Check if the file exists
 if os.path.exists(connections_file):
-    print("File exists.")
+    # print("File exists.")
+    pass # do nothing
 else:
     print("File does not exist.")
 

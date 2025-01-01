@@ -4,7 +4,7 @@ import argparse
 import os
 
 # Hardcoded version information
-VERSION = "0.0.7"
+VERSION = "0.0.8"
 
 # Hardcoded dependencies information
 DEPENDENCIES = {
@@ -18,24 +18,34 @@ DEPENDENCIES = {
 }
 
 # Hardcoded usage information
-USAGE_INFO = """
-Usage: connectionvault [OPTIONS]
+EXAMPLE = """
 
-Options:
-  --version       Show the version and exit.
-  --dependencies  Show project dependencies and exit.
-  --usage         Show this message and exit.
-  --connections   Start connection manager utility.
-  --yamldir       Show location of connection.yaml file and exit.
+ENSURE YOU HAVE SET THE ENVIRONMENT VARIABLE 'conn_home' TO THE DIRECTORY WHERE YOUR connections.yaml FILE IS LOCATED.
 
-  for more detail on syntax refer README.md
+sample usage:
+
+from app.src.connection_utility import load_connections, choose_connection
+from sqlalchemy import create_engine
+import pandas as pd
+
+def main():
+    connections = load_connections()
+    conn = choose_connection(connections)
+
+    engine = create_engine(conn)
+    query = input("Input your query: ")
+    df = pd.read_sql_query(query, engine)
+    print(df)
+
+if __name__ == "__main__":
+    main()```
 """
 
 def main():
     parser = argparse.ArgumentParser(description='ConnectionVault CLI Tool')
     parser.add_argument('--version', action='version', version=f'ConnectionVault {VERSION}')
     parser.add_argument('--dependencies', action='store_true', help='Show project dependencies')
-    parser.add_argument('--usage', action='store_true', help='Show usage information')
+    parser.add_argument('--example', action='store_true', help='Show sample code syntax')
     parser.add_argument('--connections', action='store_true', help='Start connection manager utility')
     parser.add_argument('--yamldir', action='store_true', help='Show location of connection.yaml file')
 
@@ -47,9 +57,9 @@ def main():
         for dep, version in DEPENDENCIES.items():
             print(f"{dep}: {version}")
 
-    if args.usage:
+    if args.example:
         print("Usage Information:\n")
-        print(USAGE_INFO)
+        print(EXAMPLE)
 
     if args.connections:
         conn_manage_main()
