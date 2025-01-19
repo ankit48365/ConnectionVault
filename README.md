@@ -36,6 +36,9 @@ The purpose of this project is to centralize the database connections file (as Y
        main()```
 2. **Connection Utility:** Allows you to save new connections, and add, update, delete, or see existing connections in the saved YAML file.
 
+![Alt text](app/src/output.png)
+
+
 ## Running the Project
 
 To run this project, you need to define and save a path with the name `conn_home`. This is where you’ll save the `connections.yaml` file, which stores your database credentials.
@@ -73,4 +76,12 @@ echo 'export conn_home="path/outside/your/project/preferably"' >> ~/.bashrc
 
 # Source the .bashrc to apply changes
 source ~/.bashrc
+```
+
+### UML's
+
+```
+    pyreverse -o png -p myUML .
+    or
+    app\src> code2flow -o output.png cli.py connection_manager.py connection_utility.py
 ```

@@ -5,7 +5,6 @@ certifi==2024.8.30
 cffi==1.17.1
 charset-normalizer==3.4.0
 cleo==2.1.0
-connectionvault @ file:///home/ankiz/Documents/mygit/ConnectionVault/dist/connectionvault-0.0.4-py3-none-any.whl#sha256=bf2f0561ba158be75a9122831a3a9d0620ebfd3cfd315b700a5c55a83ed9d8d8
 crashtest==0.4.1
 cryptography==43.0.3
 dill==0.3.9
