@@ -24,7 +24,7 @@ ENSURE YOU HAVE SET THE ENVIRONMENT VARIABLE 'conn_home' TO THE DIRECTORY WHERE 
 
 sample usage:
 
-from app.src.connection_utility import load_connections, choose_connection
+from src.connection_utility import load_connections, choose_connection
 from sqlalchemy import create_engine
 import pandas as pd
 
