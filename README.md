@@ -19,7 +19,7 @@ The purpose of this project is to centralize the database connections file (as Y
    Python code usage example:
 
    ```python
-   from app.src.connection_utility import load_connections, choose_connection
+   from src.connection_utility import load_connections, choose_connection
    from sqlalchemy import create_engine
    import pandas as pd
 
