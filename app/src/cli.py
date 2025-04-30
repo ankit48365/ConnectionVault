@@ -14,7 +14,8 @@ DEPENDENCIES = {
     "psycopg2": "^2.9.10",
     "pandas": "^2.2.3",
     "pyodbc": "^5.2.0",
-    "pylint": "^3.3.1"
+    "pylint": "^3.3.1",
+    "poetry": "^1.8.4"
 }
 
 # Hardcoded usage information

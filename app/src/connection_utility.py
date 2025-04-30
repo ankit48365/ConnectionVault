@@ -69,6 +69,7 @@ def choose_connection(connections):
                 conn_name = list(connections.keys())[choice]
                 # print('while true -- if - if return connections[conn_name]')
                 conn_det=connections[conn_name]
+                print(conn_det)
                 conn_str= make_string(conn_det)
 
                 return conn_str
@@ -80,4 +81,6 @@ def choose_connection(connections):
         else: print("Invalid input. Please enter a number.")
 
 if __name__ == "__main__":
-    load_connections()
+    # load_connections()
+    connections = load_connections()
+    conn = choose_connection(connections)
