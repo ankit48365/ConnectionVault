@@ -25,7 +25,9 @@ def make_string(conn_det):
     elif conn_det['ConnectionType'] == 'sqlserver':
         conn_str = f"mssql+pyodbc://{conn_det['user']}:{conn_det['password']}@{conn_det['host']}:{conn_det['port']}/{conn_det['database']}?driver={conn_det['driver']}&TrustServerCertificate=yes"
         return conn_str
-
+    elif conn_det['ConnectionType'] == 'mysql':
+        conn_str = f"mysql+mysqlconnector://{conn_det['user']}:{conn_det['password']}@{conn_det['host']}:{conn_det['port']}/{conn_det['database']}"
+        return conn_str
     elif conn_det['ConnectionType'] == 'other':
         print('for future rdbms additions')
         conn_str = 'empty'
@@ -69,6 +71,7 @@ def choose_connection(connections):
                 conn_name = list(connections.keys())[choice]
                 # print('while true -- if - if return connections[conn_name]')
                 conn_det=connections[conn_name]
+                print(conn_det)
                 conn_str= make_string(conn_det)
 
                 return conn_str
@@ -80,4 +83,6 @@ def choose_connection(connections):
         else: print("Invalid input. Please enter a number.")
 
 if __name__ == "__main__":
-    load_connections()
+    # load_connections()
+    connections = load_connections()
+    conn = choose_connection(connections)
