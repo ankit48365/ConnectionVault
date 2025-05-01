@@ -4,7 +4,7 @@ import argparse
 import os
 
 # Hardcoded version information
-VERSION = "0.0.91"
+VERSION = "2.0.0"
 
 # Hardcoded dependencies information
 DEPENDENCIES = {
@@ -17,7 +17,6 @@ DEPENDENCIES = {
     "pylint": "^3.3.1",
     "mysql-connector-python": "^9.3.0",
     "poetry": "^1.8.4"
-
 }
 
 # Hardcoded usage information
@@ -25,8 +24,7 @@ EXAMPLE = """
 
 ENSURE YOU HAVE SET THE ENVIRONMENT VARIABLE 'conn_home' TO THE DIRECTORY WHERE YOUR connections.yaml FILE IS LOCATED.
 
-Sample Usage 1: With User Input
-
+Sample Usage 1: Interactive with User Input
 
 from src.connection_utility import (load_connections, choose_connection)
 from sqlalchemy import create_engine
@@ -44,23 +42,17 @@ def main():
 if __name__ == "__main__":
     main()```
 
-Sample Usage 2: With Hardcoded Values
+Sample Usage 2: Code for a Specific Connection, suitable for batch cycle jobs.
 
-
-#Below two lines define path to the connection.yaml file
 conn_home = os.environ.get('conn_home')
 connection_file = os.path.join(conn_home, 'connection.yaml')
-
-#below two lines open and load the connections.yaml file to
-#a variable named 'connections'
 
 with open("connection_file", "r") as file:
     connections = yaml.safe_load(file)
 
-#below two , we hard code a connection name to use
-#& CONNECTION_STRING is ready to use db connection string
 connection_detail = connections['CONFIG IN CONNECTIONS.YAML']
 CONNECTION_STRING = make_string(connection_detail)
+
 """
 
 def main():
@@ -96,47 +88,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-
-
-# below uses data from pyproject.toml, works well locally but needs external script to actually copy paste data while creating packages (*whl)
-
-
-# import argparse
-# import tomli
-
-# def get_version():
-#     with open('pyproject.toml', 'rb') as f:
-#         config = tomli.load(f)
-#         return config['tool']['poetry']['version']
-
-# def get_dependencies():
-#     with open('pyproject.toml', 'rb') as f:
-#         config = tomli.load(f)
-#         dependencies = config['tool']['poetry']['dependencies']
-#         return dependencies
-
-# def get_usage():
-#     with open('README.md', 'r') as f:
-#         return f.read()
-
-# def main():
-#     parser = argparse.ArgumentParser(description='ConnectionVault CLI Tool')
-#     parser.add_argument('--version', action='version', version=f'ConnectionVault {get_version()}')
-#     parser.add_argument('--dependencies', action='store_true', help='Show project dependencies')
-#     parser.add_argument('--usage', action='store_true', help='Show usage information from README.md')
-    
-#     args = parser.parse_args()
-
-#     if args.dependencies:
-#         dependencies = get_dependencies()
-#         print("Project Dependencies:")
-#         for dep, version in dependencies.items():
-#             print(f"{dep}: {version}")
-
-#     if args.usage:
-#         usage_info = get_usage()
-#         print("Usage Information:\n")
-#         print(usage_info)
-
-# if __name__ == '__main__':
-#     main()

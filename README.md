@@ -1,5 +1,5 @@
 [![Upload Python Package](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml/badge.svg)](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml)
-![Latest Release](https://img.shields.io/badge/release-v0.0.91-blue)
+![Latest Release](https://img.shields.io/badge/release-v2.0.0-blue)
 
 # ConnectionVault
 
@@ -8,6 +8,9 @@
     connectionvault --help
 
 ```    
+### Note
+
+* version 2.0.0 tested for postgres, sql server and mysql db
 
 ## Purpose
 
@@ -35,9 +38,6 @@ The purpose of this project is to centralize the database connections file (as Y
    if __name__ == "__main__":
        main()```
 2. **Connection Utility:** Allows you to save new connections, and add, update, delete, or see existing connections in the saved YAML file.
-
-![Alt text](app/src/output.png)
-
 
 ## Running the Project
 
