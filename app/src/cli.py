@@ -15,7 +15,9 @@ DEPENDENCIES = {
     "pandas": "^2.2.3",
     "pyodbc": "^5.2.0",
     "pylint": "^3.3.1",
-    "mysql-connector-python": "^9.3.0"
+    "mysql-connector-python": "^9.3.0",
+    "poetry": "^1.8.4"
+
 }
 
 # Hardcoded usage information
