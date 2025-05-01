@@ -25,7 +25,9 @@ def make_string(conn_det):
     elif conn_det['ConnectionType'] == 'sqlserver':
         conn_str = f"mssql+pyodbc://{conn_det['user']}:{conn_det['password']}@{conn_det['host']}:{conn_det['port']}/{conn_det['database']}?driver={conn_det['driver']}&TrustServerCertificate=yes"
         return conn_str
-
+    elif conn_det['ConnectionType'] == 'mysql':
+        conn_str = f"mysql+mysqlconnector://{conn_det['user']}:{conn_det['password']}@{conn_det['host']}:{conn_det['port']}/{conn_det['database']}"
+        return conn_str
     elif conn_det['ConnectionType'] == 'other':
         print('for future rdbms additions')
         conn_str = 'empty'

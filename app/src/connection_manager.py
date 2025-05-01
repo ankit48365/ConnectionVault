@@ -63,17 +63,18 @@ def main():
         if choice == '0':
             # while True:
                 # print("\Connection Type: [1] Postgres [2] SQL Server [3] other [4] Exit")
-            ConnType = input("Connection Type: [1] Postgres [2] SQL Server [3] other [4] Exit ")
+            ConnType = input("Connection Type: [1] Postgres [2] SQL Server [3] MySQL [4] Other [5] Exit ")
             if ConnType == '1': ConnType = 'postgres'
             elif ConnType == '2': ConnType = 'sqlserver'
-            elif ConnType == '3': ConnType = 'other'
-            elif ConnType == '4':
+            elif ConnType == '3': ConnType = 'mysql'
+            elif ConnType == '4': ConnType = 'other'
+            elif ConnType == '5':
                 break
             else:
                 print("Invalid choice. Please try again.")
 
             name = input("Enter new connection name: ")
-            driver = input("Enter driver name (suggestion ~ postgresql+psycopg2 or ODBC+Driver+18+for+SQL+Server): ")
+            driver = input("Enter driver name (suggestion ~ postgresql+psycopg2 or ODBC+Driver+18+for+SQL+Server or mysqlconnector): ")
             host = input("Enter host: ")
             database = input("Enter database: ")
             port = input("Enter port: ")

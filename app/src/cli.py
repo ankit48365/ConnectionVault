@@ -15,7 +15,9 @@ DEPENDENCIES = {
     "pandas": "^2.2.3",
     "pyodbc": "^5.2.0",
     "pylint": "^3.3.1",
+    "mysql-connector-python": "^9.3.0",
     "poetry": "^1.8.4"
+
 }
 
 # Hardcoded usage information
@@ -23,9 +25,10 @@ EXAMPLE = """
 
 ENSURE YOU HAVE SET THE ENVIRONMENT VARIABLE 'conn_home' TO THE DIRECTORY WHERE YOUR connections.yaml FILE IS LOCATED.
 
-sample usage:
+Sample Usage 1: With User Input
 
-from src.connection_utility import load_connections, choose_connection
+
+from src.connection_utility import (load_connections, choose_connection)
 from sqlalchemy import create_engine
 import pandas as pd
 
@@ -40,6 +43,24 @@ def main():
 
 if __name__ == "__main__":
     main()```
+
+Sample Usage 2: With Hardcoded Values
+
+
+#Below two lines define path to the connection.yaml file
+conn_home = os.environ.get('conn_home')
+connection_file = os.path.join(conn_home, 'connection.yaml')
+
+#below two lines open and load the connections.yaml file to
+#a variable named 'connections'
+
+with open("connection_file", "r") as file:
+    connections = yaml.safe_load(file)
+
+#below two , we hard code a connection name to use
+#& CONNECTION_STRING is ready to use db connection string
+connection_detail = connections['CONFIG IN CONNECTIONS.YAML']
+CONNECTION_STRING = make_string(connection_detail)
 """
 
 def main():
