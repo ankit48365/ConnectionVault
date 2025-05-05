@@ -91,13 +91,14 @@ def main():
             if 1 <= selection <= len(connection_list):
                 name = connection_list[selection - 1][0]
                 # driver = input("Enter new driver (leave blank to keep current): ") or connection_list[selection - 1][1]['driver']
+                connection_type = connection_list[selection - 1][1].get('ConnectionType', 'unknown')
                 driver = input("Enter new driver (leave blank to keep current): ") or connection_list[selection - 1][1]['driver']
                 host = input("Enter new host (leave blank to keep current): ") or connection_list[selection - 1][1]['host']
                 database = input("Enter new database (leave blank to keep current): ") or connection_list[selection - 1][1]['database']
                 port = input("Enter new port (leave blank to keep current): ") or connection_list[selection - 1][1]['port']
                 user = input("Enter new user (leave blank to keep current): ") or connection_list[selection - 1][1]['user']
                 password = input("Enter new password (leave blank to keep current): ") or connection_list[selection - 1][1]['password']
-                details = {'driver':driver,'host': host, 'database': database,'port': port, 'user': user, 'password': password}
+                details = {'ConnectionType':connection_type, 'driver':driver,'host': host, 'database': database,'port': port, 'user': user, 'password': password}
                 add_or_update_connection(name, details)
                 print(f'Connection {name} updated.')
             else:
