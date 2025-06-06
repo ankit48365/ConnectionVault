@@ -6,7 +6,7 @@ import os
 import sys
 
 # Hardcoded version information
-VERSION = "2.1.0"
+VERSION = "2.1.1"
 
 # Hardcoded dependencies information
 DEPENDENCIES = {

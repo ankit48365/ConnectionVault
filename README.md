@@ -1,5 +1,5 @@
 [![Upload Python Package](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml/badge.svg)](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml)
-![Latest Release](https://img.shields.io/badge/release-v2.0.1-blue)
+![Latest Release](https://img.shields.io/badge/release-v2.1.1-blue)
 ![CurrentLocal](https://img.shields.io/badge/machine-Latitude-brightgreen)
 
 # ConnectionVault
