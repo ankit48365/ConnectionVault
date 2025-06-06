@@ -1,7 +1,9 @@
 
 from .connection_manager import main as conn_manage_main
+from .main_call import interactive
 import argparse
 import os
+import sys
 
 # Hardcoded version information
 VERSION = "2.0.1"
@@ -26,26 +28,14 @@ ENSURE YOU HAVE SET THE ENVIRONMENT VARIABLE 'conn_home' TO THE DIRECTORY WHERE 
 
 Sample Usage 1: Interactive with User Input
 
-from src.connection_utility import (load_connections, choose_connection)
-from sqlalchemy import create_engine
-import pandas as pd
+from src.main_call import interactive
 
-def main():
-    connections = load_connections()
-    conn = choose_connection(connections)
 
-    engine = create_engine(conn)
-    query = input("Input your query: ")
-    df = pd.read_sql_query(query, engine)
-    print(df)
-
-if __name__ == "__main__":
-    main()```
 
 Sample Usage 2: Code for a Specific Connection, suitable for batch cycle jobs.
 
 conn_home = os.environ.get('conn_home')
-connection_file = os.path.join(conn_home, 'connection.yaml')
+connection_file = os.path.join(conn_home, 'connections.yaml')
 
 with open("connection_file", "r") as file:
     connections = yaml.safe_load(file)
@@ -62,6 +52,9 @@ def main():
     parser.add_argument('--example', action='store_true', help='Show sample code syntax')
     parser.add_argument('--connections', action='store_true', help='Start connection manager utility')
     parser.add_argument('--yamldir', action='store_true', help='Show location of connection.yaml file')
+    parser.add_argument('--interactive', action='store_true', help='Run a SQL from CLI, requires -dbconfig argument')
+    # parser.add_argument('-dbconfig', type=str, help='input name of the db config name matching from connections.yaml file')
+
 
     
     args = parser.parse_args()
@@ -84,6 +77,12 @@ def main():
             print(f"conn_home: {conn_home}")
         else:
             print("please set conn_home variable")
+
+    if args.interactive:
+        out =  interactive()
+        print(out)
+        sys.exit(0)
+
 
 if __name__ == '__main__':
     main()
