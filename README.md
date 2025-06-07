@@ -15,34 +15,13 @@
 
 ## Purpose
 
+The purpose of this project is to centralize the database connections (credentials and other connections details) file (as YAML) on a user's machine.
 
-The purpose of this project is to centralize the database connections file (as YAML) on a user's machine. The project has two utilities:
+## Running the Project : Pre-requisites
 
-1. **Connection Manager:** Allows you to choose and load a connection string in a Python code quickly.
-
-   Python code usage example:
-
-   ```python
-   from src.connection_utility import load_connections, choose_connection
-   from sqlalchemy import create_engine
-   import pandas as pd
-
-   def main():
-       connections = load_connections()
-       conn = choose_connection(connections)
-
-       engine = create_engine(conn)
-       query = input("Input your query: ")
-       df = pd.read_sql_query(query, engine)
-       print(df)
-
-   if __name__ == "__main__":
-       main()```
-2. **Connection Utility:** Allows you to save new connections, and add, update, delete, or see existing connections in the saved YAML file.
-
-## Running the Project
-
-To run this project, you need to define and save a path with the name `conn_home`. This is where you’ll save the `connections.yaml` file, which stores your database credentials.
+1. Create empty file ~ `connections.yaml` on a location of your choice.
+2. Save that location as varibale path with name `conn_home`. 
+3. Steps defined below as how to setup varibale on Windows and Linux
 
 ## For Windows (CMD):
 
@@ -78,6 +57,46 @@ echo 'export conn_home="path/outside/your/project/preferably"' >> ~/.bashrc
 # Source the .bashrc to apply changes
 source ~/.bashrc
 ```
+
+## Usage Examples:
+
+From CLI run 
+
+```
+connectionvault --example
+```
+
+## MCP Integration:
+
+On a MAchine where you have your Database running and want to spin MCP server, follow below steps:
+
+1. Create project for MCP server
+2. Install "connectionvault", "fastmcp"
+3. Run a MCP server with a code like below
+
+    ```
+        from mcp.server.fastmcp.server import FastMCP 
+        from .main_call import return_string
+
+        mcp = FastMCP("connections")
+
+        @mcp.prompt()
+        def myconnection_prompt():
+            return """
+            You are interacting with a myconnection service that calls the 'myconnection' tool with a single parameter: req_string (string).
+            this function when called returns a database connection string based on a match it finds on 'req_string' in a secure database credentials configuration file.
+            """
+
+        @mcp.tool()
+        def myconnection(req_string: str) -> str:
+            string = return_string(req_string)  
+            return string
+
+        if __name__ == "__main__":
+            mcp.run(transport='stdio')
+    ```
+
+
 
 ### UML's
 
