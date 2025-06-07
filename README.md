@@ -12,6 +12,7 @@
 ### Note
 
 * version 2.0.0 tested for postgres, sql server and mysql db
+* version 2.1.1 Easier execution code, mysql db inetgrated, ReadMe updated with MCP inetgration
 
 ## Purpose
 
