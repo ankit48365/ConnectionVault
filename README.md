@@ -76,25 +76,30 @@ On a MAchine where you have your Database running and want to spin MCP server, f
 3. Run a MCP server with a code like below
 
     ```
-        from mcp.server.fastmcp.server import FastMCP 
-        from .main_call import return_string
+    from mcp.server.fastmcp.server import FastMCP 
+    from src.main_call import return_string
 
-        mcp = FastMCP("connections")
+    mcp = FastMCP("connections", log_level="ERROR")
 
-        @mcp.prompt()
-        def myconnection_prompt():
-            return """
-            You are interacting with a myconnection service that calls the 'myconnection' tool with a single parameter: req_string (string).
-            this function when called returns a database connection string based on a match it finds on 'req_string' in a secure database credentials configuration file.
-            """
+    @mcp.prompt()
+    def connections_prompt():
+        return """
+        You are interacting with a connections service that calls the 'connections' tool with a single parameter: req_string (string).
+        this function when called returns a database connection string based on a match it finds on 'req_string' in a secure database credentials configuration file.
+        """
 
-        @mcp.tool()
-        def myconnection(req_string: str) -> str:
-            string = return_string(req_string)  
-            return string
+    @mcp.resource("resource://empty")
+    def empty_resource():
+        return None  # Returns an empty resource
 
-        if __name__ == "__main__":
-            mcp.run(transport='stdio')
+
+    @mcp.tool()
+    def connections(req_string: str) -> str:
+        db_config = return_string(req_string)  
+        return db_config
+
+    if __name__ == "__main__":
+        mcp.run(transport='stdio')
     ```
 
 
