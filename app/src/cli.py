@@ -1,4 +1,4 @@
-
+from sqlalchemy import text
 from .connection_manager import main as conn_manage_main
 from .main_call import interactive
 import argparse
@@ -39,6 +39,8 @@ Sample Usage 2: interactive (CLI)
 """
 
 def main():
+    print(">>> ✅ CLI version 2.1.1 loaded")
+
     parser = argparse.ArgumentParser(description='ConnectionVault CLI Tool')
     parser.add_argument('--version', action='version', version=f'ConnectionVault {VERSION}')
     parser.add_argument('--dependencies', action='store_true', help='Show project dependencies')
@@ -46,6 +48,8 @@ def main():
     parser.add_argument('--connections', action='store_true', help='Start connection manager utility')
     parser.add_argument('--yamldir', action='store_true', help='Show location of connection.yaml file')
     parser.add_argument('--interactive', action='store_true', help='Run a SQL from CLI')
+    parser.add_argument('--test', type=str, metavar='conn_name', help='Test database connection using a user-provided connection name')
+
     # parser.add_argument('-dbconfig', type=str, help='input name of the db config name matching from connections.yaml file')
 
 
@@ -76,7 +80,20 @@ def main():
         print(out)
         sys.exit(0)
 
+    if args.test:
+        from .main_call import return_engine
+        config_name = args.test
+        try:
+            engine = return_engine(config_name)
+            with engine.connect() as conn:
+                conn.execute(text("SELECT 1"))
+            print(f"✅ Connection '{config_name}' is working.")
+        except Exception as e:
+            print(f"❌ Connection '{config_name}' failed. Error:\n{e}")
+        sys.exit(0)
+
 
 if __name__ == '__main__':
     main()
+
 
