@@ -6,7 +6,7 @@ import os
 import sys
 
 # Hardcoded version information
-VERSION = "2.1.1"
+VERSION = "2.2.0"
 
 # Hardcoded dependencies information
 DEPENDENCIES = {
@@ -39,8 +39,7 @@ Sample Usage 2: interactive (CLI)
 """
 
 def main():
-    print(">>> ✅ CLI version 2.1.1 loaded")
-
+    print(">>> ✅ Connectionvault CLI loaded")
     parser = argparse.ArgumentParser(description='ConnectionVault CLI Tool')
     parser.add_argument('--version', action='version', version=f'ConnectionVault {VERSION}')
     parser.add_argument('--dependencies', action='store_true', help='Show project dependencies')
@@ -51,9 +50,7 @@ def main():
     parser.add_argument('--test', type=str, metavar='conn_name', help='Test database connection using a user-provided connection name')
 
     # parser.add_argument('-dbconfig', type=str, help='input name of the db config name matching from connections.yaml file')
-
-
-    
+   
     args = parser.parse_args()
 
     if args.dependencies:
