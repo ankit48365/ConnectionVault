@@ -6,7 +6,7 @@ import os
 import sys
 
 # Hardcoded version information
-VERSION = "2.2.0"
+VERSION = "2.2.1"
 
 # Hardcoded dependencies information
 DEPENDENCIES = {
@@ -18,12 +18,12 @@ DEPENDENCIES = {
     "pyodbc": "^5.2.0",
     "pylint": "^3.3.1",
     "mysql-connector-python": "^9.3.0",
-    "poetry": "^1.8.4"
+    "poetry": "^1.8.4",
+    "tabulate": "^0.9.0"
 }
 
 # Hardcoded usage information
 EXAMPLE = """
-
 ENSURE YOU HAVE SET THE ENVIRONMENT VARIABLE 'conn_home' TO THE DIRECTORY WHERE YOUR connections.yaml FILE IS LOCATED.
 
 Sample Usage 1: for batch jobs
