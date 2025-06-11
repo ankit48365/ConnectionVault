@@ -1,5 +1,6 @@
 import yaml
 import os
+from tabulate import tabulate
 
 #readme.md file for setting up
 
@@ -45,15 +46,32 @@ def delete_connection(name):
         save_connections(connections)
 
 # Function to display connections and return the mapping of numbers to connection names
+# def display_connections():
+#     connections = load_connections()
+#     if not connections:
+#         print("No connections available.")
+#         return []
+#     connection_list = list(connections.items())
+#     for i, (name, details) in enumerate(connection_list, 1):
+#         print(f'{i}: {name} - {details}')
+#     return connection_list
+
+
 def display_connections():
     connections = load_connections()
     if not connections:
         print("No connections available.")
         return []
-    connection_list = list(connections.items())
-    for i, (name, details) in enumerate(connection_list, 1):
-        print(f'{i}: {name} - {details}')
+
+    connection_list = [(name, details['ConnectionType'],details['driver'], details['database'], details['host'], details['port'], details['user']) 
+                       for name, details in connections.items()]
+
+    headers = ["Name", "Type", "driver", "Database", "Host", "Port", "User"]
+    print(tabulate(connection_list, headers=headers, tablefmt="grid"))
+
     return connection_list
+
+
 
 def main():
     while True:

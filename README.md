@@ -1,5 +1,5 @@
 [![Upload Python Package](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml/badge.svg)](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml)
-![Latest Release](https://img.shields.io/badge/release-v2.2.0-blue)
+![Latest Release](https://img.shields.io/badge/release-v2.2.1-blue)
 ![CurrentLocal](https://img.shields.io/badge/machine-Latitude-brightgreen)
 
 # ConnectionVault
@@ -14,7 +14,7 @@
 * version 2.0.0 Tested for postgres, sql server and mysql db
 * version 2.1.1 Easier execution code, mysql db inetgrated, ReadMe updated with MCP inetgration
 * version 2.2.0 Test connection from CLI {ex - connectionvault --test config_name}
-
+* verson 2.2.1 OPtion 3 Display Conn hides Pass and present Tabular Data {ex - connectionvault --connections - [3] Display Connections
 
 ## Purpose
 
