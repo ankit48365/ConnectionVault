@@ -24,8 +24,16 @@ def return_string(xml_config: str) -> str:
 
     connection_detail = connections[xml_config]
     CONNECTION_STRING = make_string(connection_detail)
-    # print (CONNECTION_STRING)
     return CONNECTION_STRING
+
+
+def return_engine(xml_config: str):
+    """
+    Given a config name from connections.yaml, return a SQLAlchemy engine.
+    """
+    connection_url = return_string(xml_config)
+    engine = create_engine(connection_url)
+    return engine
 
 if __name__ == "__main__":
 
