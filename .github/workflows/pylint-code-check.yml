@@ -59,8 +59,8 @@ jobs:
           git add README.md pylint_report.txt
           git commit -m "Update Pylint badge in README [skip ci]" || echo "No changes to commit"
           git push
-        # env:
-        #   GITHUB_TOKEN: ${{ secrets.GHA_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHA_TOKEN }}
 
       # - name: Commit and Push README update
       #   run: |
