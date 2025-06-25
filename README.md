@@ -1,4 +1,4 @@
-![pylint](https://img.shields.io/badge/pylint-3.86-red)
+![pylint](https://img.shields.io/badge/pylint-6.47-red)
 [![PyPi Deployment](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml/badge.svg)](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml)
 ![Latest Release](https://img.shields.io/badge/release-v2.2.1-blue)
 ![CurrentLocal](https://img.shields.io/badge/machine-Latitude-brightgreen)
