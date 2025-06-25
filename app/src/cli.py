@@ -1,9 +1,10 @@
-from sqlalchemy import text
-from .connection_manager import main as conn_manage_main
-from .main_call import interactive
+"""ConnectionVault CLI Tool"""
 import argparse
 import os
 import sys
+from sqlalchemy import text # pylint: disable=import-error
+from .connection_manager import main as conn_manage_main
+from .main_call import interactive
 
 # Hardcoded version information
 VERSION = "2.2.1"
@@ -39,18 +40,19 @@ Sample Usage 2: interactive (CLI)
 """
 
 def main():
+    """Main function to handle CLI arguments and execute corresponding actions."""
     print(">>> ✅ Connectionvault CLI loaded")
     parser = argparse.ArgumentParser(description='ConnectionVault CLI Tool')
     parser.add_argument('--version', action='version', version=f'ConnectionVault {VERSION}')
     parser.add_argument('--dependencies', action='store_true', help='Show project dependencies')
     parser.add_argument('--example', action='store_true', help='Show sample code syntax')
-    parser.add_argument('--connections', action='store_true', help='Start connection manager utility')
-    parser.add_argument('--yamldir', action='store_true', help='Show location of connection.yaml file')
+    parser.add_argument('--connections', action='store_true', help='Start connection manager utility') # pylint: disable=line-too-long
+    parser.add_argument('--yamldir', action='store_true', help='Show location of connection.yaml file') # pylint: disable=line-too-long
     parser.add_argument('--interactive', action='store_true', help='Run a SQL from CLI')
-    parser.add_argument('--test', type=str, metavar='conn_name', help='Test database connection using a user-provided connection name')
+    parser.add_argument('--test', type=str, metavar='conn_name', help='Test database connection using a user-provided connection name') # pylint: disable=line-too-long
 
     # parser.add_argument('-dbconfig', type=str, help='input name of the db config name matching from connections.yaml file')
-   
+
     args = parser.parse_args()
 
     if args.dependencies:
@@ -92,5 +94,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 

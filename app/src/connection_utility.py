@@ -1,6 +1,7 @@
-# import pyodbc
-import yaml
+"""docstring for connection_utility.py module."""
 import os
+import yaml # pylint: disable=import-error
+
 
 # Retrieve and verify the environment variable
 conn_home = os.getenv('conn_home')
@@ -19,14 +20,15 @@ else:
 
 # @trace_func
 def make_string(conn_det):
+    """Generate a connection string based on the connection details provided."""
     if conn_det['ConnectionType'] == 'postgres':
-        conn_str = f"{conn_det['driver']}://{conn_det['user']}:{conn_det['password']}@{conn_det['host']}:{conn_det['port']}/{conn_det['database']}"
+        conn_str = f"{conn_det['driver']}://{conn_det['user']}:{conn_det['password']}@{conn_det['host']}:{conn_det['port']}/{conn_det['database']}" # pylint: disable=line-too-long
         return conn_str
     elif conn_det['ConnectionType'] == 'sqlserver':
-        conn_str = f"mssql+pyodbc://{conn_det['user']}:{conn_det['password']}@{conn_det['host']}:{conn_det['port']}/{conn_det['database']}?driver={conn_det['driver']}&TrustServerCertificate=yes"
+        conn_str = f"mssql+pyodbc://{conn_det['user']}:{conn_det['password']}@{conn_det['host']}:{conn_det['port']}/{conn_det['database']}?driver={conn_det['driver']}&TrustServerCertificate=yes" # pylint: disable=line-too-long
         return conn_str
     elif conn_det['ConnectionType'] == 'mysql':
-        conn_str = f"mysql+mysqlconnector://{conn_det['user']}:{conn_det['password']}@{conn_det['host']}:{conn_det['port']}/{conn_det['database']}"
+        conn_str = f"mysql+mysqlconnector://{conn_det['user']}:{conn_det['password']}@{conn_det['host']}:{conn_det['port']}/{conn_det['database']}" # pylint: disable=line-too-long
         return conn_str
     elif conn_det['ConnectionType'] == 'other':
         print('for future rdbms additions')
@@ -36,7 +38,7 @@ def make_string(conn_det):
     # elif conn_det['ConnectionType'] == 'other':
         # print('for future rdbms additions')
     else:
-         print("Invalid choice. Please try again.")
+        print("Invalid choice. Please try again.")
 
     # return connections
 
@@ -75,7 +77,7 @@ def choose_connection(connections):
                 conn_str= make_string(conn_det)
 
                 return conn_str
-    
+
             elif choice == len(connections): # Handling the exit option
                 print("Exiting.")
                 return None
