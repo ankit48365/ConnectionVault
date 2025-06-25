@@ -1,6 +1,7 @@
-import yaml
+"""Connection Manager for managing database connections using YAML file storage."""
 import os
-from tabulate import tabulate
+import yaml # pylint: disable=import-error
+from tabulate import tabulate # pylint: disable=import-error
 
 #readme.md file for setting up
 
@@ -22,6 +23,7 @@ else:
 
 # Function to load the connections from the file
 def load_connections():
+    """Load connections from the YAML file."""
     if os.path.exists(connections_file):
         with open(connections_file, 'r') as file:
             return yaml.safe_load(file) or {}
@@ -29,17 +31,20 @@ def load_connections():
 
 # Function to save the connections to the file
 def save_connections(connections):
+    """Save connections to the YAML file."""
     with open(connections_file, 'w') as file:
         yaml.safe_dump(connections, file)
 
 # Function to add or update a connection
 def add_or_update_connection(name, details):
+    """Add or update a connection in the YAML file."""
     connections = load_connections()
     connections[name] = details
     save_connections(connections)
 
 # Function to delete a connection
 def delete_connection(name):
+    """Delete a connection from the YAML file."""
     connections = load_connections()
     if name in connections:
         del connections[name]
@@ -58,12 +63,13 @@ def delete_connection(name):
 
 
 def display_connections():
+    """Display connections in a tabular format."""
     connections = load_connections()
     if not connections:
         print("No connections available.")
         return []
 
-    connection_list = [(name, details['ConnectionType'],details['driver'], details['database'], details['host'], details['port'], details['user']) 
+    connection_list = [(name, details['ConnectionType'],details['driver'], details['database'], details['host'], details['port'], details['user']) # pylint: disable=line-too-long
                        for name, details in connections.items()]
 
     headers = ["Name", "Type", "driver", "Database", "Host", "Port", "User"]
@@ -74,14 +80,15 @@ def display_connections():
 
 
 def main():
+    """Main function to run the connection manager CLI."""
     while True:
-        print("\nOptions: [0] Add New Connection [1] Update Connection [2] Delete Connection [3] Display Connections [4] Exit")
+        print("\nOptions: [0] Add New Connection [1] Update Connection [2] Delete Connection [3] Display Connections [4] Exit") # pylint: disable=line-too-long
         choice = input("Enter your choice: ")
 
         if choice == '0':
             # while True:
                 # print("\Connection Type: [1] Postgres [2] SQL Server [3] other [4] Exit")
-            ConnType = input("Connection Type: [1] Postgres [2] SQL Server [3] MySQL [4] Other [5] Exit ")
+            ConnType = input("Connection Type: [1] Postgres [2] SQL Server [3] MySQL [4] Other [5] Exit ") # pylint: disable=line-too-long
             if ConnType == '1': ConnType = 'postgres'
             elif ConnType == '2': ConnType = 'sqlserver'
             elif ConnType == '3': ConnType = 'mysql'
@@ -92,13 +99,13 @@ def main():
                 print("Invalid choice. Please try again.")
 
             name = input("Enter new connection name: ")
-            driver = input("Enter driver name (suggestion ~ postgresql+psycopg2 or ODBC+Driver+18+for+SQL+Server or mysqlconnector): ")
+            driver = input("Enter driver name (suggestion ~ postgresql+psycopg2 or ODBC+Driver+18+for+SQL+Server or mysqlconnector): ") # pylint: disable=line-too-long
             host = input("Enter host: ")
             database = input("Enter database: ")
             port = input("Enter port: ")
             user = input("Enter user: ")
             password = input("Enter password: ")
-            details = {'ConnectionType':ConnType,'driver':driver,'host': host,'database': database, 'port': port, 'user': user, 'password': password}
+            details = {'ConnectionType':ConnType,'driver':driver,'host': host,'database': database, 'port': port, 'user': user, 'password': password} # pylint: disable=line-too-long
             add_or_update_connection(name, details)
             print(f'Connection {name} added.')
 
@@ -108,15 +115,14 @@ def main():
             selection = int(input("Enter the connection number: "))
             if 1 <= selection <= len(connection_list):
                 name = connection_list[selection - 1][0]
-                # driver = input("Enter new driver (leave blank to keep current): ") or connection_list[selection - 1][1]['driver']
                 connection_type = connection_list[selection - 1][1].get('ConnectionType', 'unknown')
-                driver = input("Enter new driver (leave blank to keep current): ") or connection_list[selection - 1][1]['driver']
-                host = input("Enter new host (leave blank to keep current): ") or connection_list[selection - 1][1]['host']
-                database = input("Enter new database (leave blank to keep current): ") or connection_list[selection - 1][1]['database']
-                port = input("Enter new port (leave blank to keep current): ") or connection_list[selection - 1][1]['port']
-                user = input("Enter new user (leave blank to keep current): ") or connection_list[selection - 1][1]['user']
-                password = input("Enter new password (leave blank to keep current): ") or connection_list[selection - 1][1]['password']
-                details = {'ConnectionType':connection_type, 'driver':driver,'host': host, 'database': database,'port': port, 'user': user, 'password': password}
+                driver = input("Enter new driver (leave blank to keep current): ") or connection_list[selection - 1][1]['driver'] # pylint: disable=line-too-long
+                host = input("Enter new host (leave blank to keep current): ") or connection_list[selection - 1][1]['host'] # pylint: disable=line-too-long
+                database = input("Enter new database (leave blank to keep current): ") or connection_list[selection - 1][1]['database'] # pylint: disable=line-too-long
+                port = input("Enter new port (leave blank to keep current): ") or connection_list[selection - 1][1]['port'] # pylint: disable=line-too-long
+                user = input("Enter new user (leave blank to keep current): ") or connection_list[selection - 1][1]['user'] # pylint: disable=line-too-long
+                password = input("Enter new password (leave blank to keep current): ") or connection_list[selection - 1][1]['password'] # pylint: disable=line-too-long
+                details = {'ConnectionType':connection_type, 'driver':driver,'host': host, 'database': database,'port': port, 'user': user, 'password': password} # pylint: disable=line-too-long
                 add_or_update_connection(name, details)
                 print(f'Connection {name} updated.')
             else:
@@ -145,3 +151,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

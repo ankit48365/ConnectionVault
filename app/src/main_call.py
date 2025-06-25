@@ -1,11 +1,14 @@
-from .connection_utility import (make_string, load_connections, choose_connection) # for local testting add src.xxxxx
-from sqlalchemy import create_engine
-import pandas as pd
+"""Main call for the application."""
 import os
+import pandas as pd
 import yaml
+# for local testting add src.xxxxx
+from .connection_utility import (make_string, load_connections, choose_connection) # pylint: disable=line-too-long
+from sqlalchemy import create_engine
 
 
 def interactive() -> str:
+    """Interactive function to choose a connection and execute a query."""
     connections = load_connections()
     conn = choose_connection(connections)
 
@@ -16,6 +19,8 @@ def interactive() -> str:
 
 
 def return_string(xml_config: str) -> str:
+    """Given a config name from connections.yaml, return a connection string.
+    """
     conn_home = os.environ.get('conn_home')
     connection_file = os.path.join(conn_home, 'connections.yaml')
 
@@ -38,13 +43,17 @@ def return_engine(xml_config: str):
 if __name__ == "__main__":
 
     # Test for Return String
-    string = return_string('pg_dlt')  # when running local the import should be like this {from src.connection_utility import make_string} or will give relative import error
+    string = return_string('pg_dlt')  
+    # when running local the import should be like this 
+    # {from src.connection_utility import make_string} or will give relative  import error
     # and for pypi package {from .connection_utility import make_string} works
     print(string)
 
 
     # Test for Inetractive   {ex - select 1}
-    # inter = interactive()  # when running local the import should be like this {from src.connection_utility import make_string} or will give relative import error
+    # inter = interactive()  # when running local the import should be 
+    # like this {from src.connection_utility import make_string} 
+    # or will give relative import error
     # and for pypi package {from .connection_utility import make_string} works
     # print(inter)
 
