@@ -118,3 +118,4 @@ On a MAchine where you have your Database running and want to spin MCP server, f
 * version 2.2.0 Test connection from CLI {ex - connectionvault --test config_name}
 * verson 2.2.1 Option 3 Display Conn hides Pass and present Tabular Data {ex - connectionvault --connections - [3] Display Connections
 * verson 2.2.2 mostly code clean up as per pylint score
+
