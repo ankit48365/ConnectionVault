@@ -1,10 +1,10 @@
 """Main call for the application."""
 import os
-import pandas as pd
-import yaml
+import pandas as pd # pylint: disable=import-error
+import yaml # pylint: disable=import-error
 # for local testting add src.xxxxx
 from .connection_utility import (make_string, load_connections, choose_connection) # pylint: disable=line-too-long
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine # pylint: disable=import-error
 
 
 def interactive() -> str:
@@ -43,16 +43,16 @@ def return_engine(xml_config: str):
 if __name__ == "__main__":
 
     # Test for Return String
-    string = return_string('pg_dlt')  
-    # when running local the import should be like this 
+    string = return_string('pg_dlt')
+    # when running local the import should be like this
     # {from src.connection_utility import make_string} or will give relative  import error
     # and for pypi package {from .connection_utility import make_string} works
     print(string)
 
 
     # Test for Inetractive   {ex - select 1}
-    # inter = interactive()  # when running local the import should be 
-    # like this {from src.connection_utility import make_string} 
+    # inter = interactive()  # when running local the import should be
+    # like this {from src.connection_utility import make_string}
     # or will give relative import error
     # and for pypi package {from .connection_utility import make_string} works
     # print(inter)

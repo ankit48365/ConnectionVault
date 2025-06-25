@@ -1,6 +1,6 @@
 ![pylint](https://img.shields.io/badge/pylint-7.95-yellow)
 [![PyPi Deployment](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml/badge.svg)](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml)
-![Latest Release](https://img.shields.io/badge/release-v2.2.1-blue)
+![Latest Release](https://img.shields.io/badge/release-v2.2.2-brightgreen)
 ![CurrentLocal](https://img.shields.io/badge/machine-Latitude-brightgreen)
 
 # ConnectionVault
@@ -10,12 +10,8 @@
     connectionvault --help
 
 ```    
-### Note
 
-* version 2.0.0 Tested for postgres, sql server and mysql db
-* version 2.1.1 Easier execution code, mysql db inetgrated, ReadMe updated with MCP inetgration
-* version 2.2.0 Test connection from CLI {ex - connectionvault --test config_name}
-* verson 2.2.1 OPtion 3 Display Conn hides Pass and present Tabular Data {ex - connectionvault --connections - [3] Display Connections
+<h4><a href="https://pypi.org/project/connectionvault/">pypi.org WEB URL</a></h4>
 
 ## Purpose
 
@@ -114,3 +110,11 @@ On a MAchine where you have your Database running and want to spin MCP server, f
     or
     app\src> code2flow -o output.png cli.py connection_manager.py connection_utility.py
 ```
+
+### Note
+
+* version 2.0.0 Tested for postgres, sql server and mysql db
+* version 2.1.1 Easier execution code, mysql db inetgrated, ReadMe updated with MCP inetgration
+* version 2.2.0 Test connection from CLI {ex - connectionvault --test config_name}
+* verson 2.2.1 Option 3 Display Conn hides Pass and present Tabular Data {ex - connectionvault --connections - [3] Display Connections
+* verson 2.2.2 mostly code clean up as per pylint score

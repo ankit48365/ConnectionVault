@@ -7,7 +7,7 @@ from .connection_manager import main as conn_manage_main
 from .main_call import interactive
 
 # Hardcoded version information
-VERSION = "2.2.1"
+VERSION = "2.2.2"
 
 # Hardcoded dependencies information
 DEPENDENCIES = {
