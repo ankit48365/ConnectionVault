@@ -44,15 +44,16 @@ connections_file = os.path.join(conn_home, 'connections.yaml')
 # print(f"connections_file: {connections_file}")
 
 # Check if the file exists
+
 if os.path.exists(connections_file):
     # print("File exists.")
-    pass # do nothing
+    pass #pass is for doing nothing
 else:
     print("File does not exist.")
 
-# @trace_func
-def make_string(conn_det):
-    """Generate a connection string based on the connection details provided.""" (duplicate-code)
+# Function to load the connections from the file
+def load_connections():
+    """Load connections from the YAML file.""" (duplicate-code)
 
 -----------------------------------
 Your code has been rated at 8.71/10
