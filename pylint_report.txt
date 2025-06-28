@@ -7,11 +7,6 @@ app/src/connection_utility.py:49:13: W1514: Using open without explicitly specif
 app/src/connection_utility.py:55:0: C0116: Missing function or method docstring (missing-function-docstring)
 app/src/connection_utility.py:55:22: W0621: Redefining name 'connections' from outer scope (line 89) (redefined-outer-name)
 app/src/connection_utility.py:72:12: R1705: Unnecessary "elif" after "return", remove the leading "el" from "elif" (no-else-return)
-************* Module app.src.cli
-app/src/cli.py:54:0: C0301: Line too long (125/100) (line-too-long)
-app/src/cli.py:97:0: C0305: Trailing newlines (trailing-newlines)
-app/src/cli.py:83:8: C0415: Import outside toplevel (main_call.return_engine) (import-outside-toplevel)
-app/src/cli.py:90:15: W0718: Catching too general exception Exception (broad-exception-caught)
 ************* Module app.src.connection_manager
 app/src/connection_manager.py:154:0: C0305: Trailing newlines (trailing-newlines)
 app/src/connection_manager.py:28:13: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
@@ -33,7 +28,13 @@ app/src/main_call.py:27:9: W1514: Using open without explicitly specifying an en
 app/src/main_call.py:31:4: C0103: Variable name "CONNECTION_STRING" doesn't conform to snake_case naming style (invalid-name)
 app/src/main_call.py:46:4: C0103: Constant name "string" doesn't conform to UPPER_CASE naming style (invalid-name)
 app/src/main_call.py:7:0: C0411: third party import "sqlalchemy.create_engine" should be placed before local import "connection_utility.make_string" (wrong-import-order)
-app/src/main_call.py:1:0: R0801: Similar lines in 2 files
+************* Module app.src.cli
+app/src/cli.py:54:0: C0301: Line too long (125/100) (line-too-long)
+app/src/cli.py:97:0: C0305: Trailing newlines (trailing-newlines)
+app/src/cli.py:83:8: C0415: Import outside toplevel (main_call.return_engine) (import-outside-toplevel)
+app/src/cli.py:90:15: W0718: Catching too general exception Exception (broad-exception-caught)
+************* Module app.test.test_utility
+app/test/test_utility.py:1:0: R0801: Similar lines in 2 files
 ==app.src.connection_manager:[8:26]
 ==app.src.connection_utility:[6:23]
 conn_home = os.getenv('conn_home')
