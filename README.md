@@ -1,6 +1,6 @@
 ![pylint](https://img.shields.io/badge/pylint-8.71-yellow)
 [![PyPi Deployment](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml/badge.svg)](https://github.com/ankit48365/ConnectionVault/actions/workflows/python-publish.yml)
-![Latest Release](https://img.shields.io/badge/release-v2.2.2-brightgreen)
+![Latest Release](https://img.shields.io/badge/release-v2.2.3-brightgreen)
 ![CurrentLocal](https://img.shields.io/badge/machine-Latitude-brightgreen)
 
 # ConnectionVault
@@ -117,4 +117,4 @@ On a MAchine where you have your Database running and want to spin MCP server, f
 * version 2.1.1 Easier execution code, mysql db inetgrated, ReadMe updated with MCP inetgration
 * version 2.2.0 Test connection from CLI {ex - connectionvault --test config_name}
 * verson 2.2.1 Option 3 Display Conn hides Pass and present Tabular Data {ex - connectionvault --connections - [3] Display Connections
-* verson 2.2.2 mostly code clean up as per pylint score
+* verson 2.2.3 mostly code clean up as per pylint score
